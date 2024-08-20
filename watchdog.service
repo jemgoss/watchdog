@@ -1,0 +1,15 @@
+[Unit]
+Description=Raspberry Pi Watchdog Tester
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/jem/watchdog
+ExecStart=/usr/bin/python watchdog.py
+Restart=on-failure
+RestartSec=10
+WatchdogSec=30
+
+[Install]
+#WantedBy=default.target
+WantedBy=multi-user.target
